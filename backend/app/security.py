@@ -14,7 +14,10 @@ from app.config import settings
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-oauth_scheme = OAuth2PasswordBearer(tokenUrl="/ap1/v1/auth/login")
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+bearer_scheme = HTTPBearer()
+
+
 def get_password_hash(password: str) -> str:
     return pwd_context.hash(password)
 
@@ -34,8 +37,10 @@ def create_access_token(data:dict) -> str:
     return encoded_jwt
 
 def get_current_user(
-    token:str = Depends(oauth_scheme),
-    session: Session = Depends(get_session))-> User:
+    credentials: HTTPAuthorizationCredentials = Depends(bearer_scheme),
+    session: Session = Depends(get_session)) -> User:
+
+    token = credentials.credentials
 
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,

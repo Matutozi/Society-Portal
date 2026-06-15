@@ -67,7 +67,7 @@ class ExecutiveContact(SQLModel, table=True):
 
 class WelfarePost(SQLModel, table=True):
     id:uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
-    society_id: uuid.UUID = Field(foreign_key="society.id", default=None)
+    society_id: Optional[uuid.UUID] = Field(foreign_key="society.id", default=None, nullable=True)
     title:str
     content:str
     category: WelfarePostCategory
