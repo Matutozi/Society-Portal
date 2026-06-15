@@ -1,0 +1,30 @@
+{
+  "societies": [
+    {
+      "name": "IEEE Student Branch",
+      "slug": "ieee-student-branch",
+      "category": "technological",
+      "description": "The professional society for engineering and technology students.",
+      "executives": [
+        { "name": "Jane Doe", "role": "Chair", "email": "jane@example.com", "order_weight": 1 },
+        { "name": "John Smith", "role": "Vice Chair", "email": "john@example.com", "order_weight": 2 }
+      ]
+    },
+    {
+      "name": "Debate Society",
+      "slug": "debate-society",
+      "category": "academic",
+      "description": "Competitive debate and public speaking.",
+      "executives": [
+        { "name": "Mary Johnson", "role": "President", "order_weight": 1 }
+      ]
+    },
+    {
+      "name": "Cultural Arts Club",
+      "slug": "cultural-arts-club",
+      "category": "cultural",
+      "description": "Celebrating music, dance, and visual arts on campus.",
+      "executives": []
+    }
+  ]
+}
