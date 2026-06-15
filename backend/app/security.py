@@ -1,10 +1,12 @@
+import uuid
+
 from jose import jwt, JWTError
 from datetime import datetime, timedelta, timezone
 from passlib.context import CryptContext
 from sqlmodel import Session
 from typing import List
 from fastapi.security import OAuth2PasswordBearer 
-from fastapi import Depends
+from fastapi import Depends, HTTPException, status
 
 from app.database import get_session
 from app.models import User, UserRole
