@@ -1,4 +1,4 @@
-import jwt
+from jose import jwt, JWTError
 from datetime import datetime, timedelta, timezone
 from passlib.context import CryptContext
 from sqlmodel import Session
@@ -8,6 +8,7 @@ from fastapi import Depends
 
 from app.database import get_session
 from app.models import User, UserRole
+from app.config import settings
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
